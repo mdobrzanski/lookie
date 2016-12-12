@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8">		
 		<link rel="stylesheet" type="text/css" href="stylOleksiejczuk.css">
 	</head>
 	<body>
-		<header id="page-header">
+	
+		<header id="page-header">			
+			<img src="logo.jpg" class="logo">
 			<h1>Abakus 2 Zając</h1>
+			<nav id="top-menu">
+				<ul class="no-dots">
+					<li><a href="startowa_Oleksiejczuk.html">Strona główna</a></li>
+					<li><a href="opis_sklepu_Oleksiejczuk.html">Opis sklepu</a></li>
+					<li><a href="asortyment_Oleksiejczuk.html">Asortyment sklepu</a></li>
+					<li><a href="promocje_Oleksiejczuk.html">Promocje</a></li>
+					<li><a href="kontakt_Oleksiejczuk.html">Kontakt</a></li>
+					<li><a href="regulamin_Oleksiejczuk.html">Regulamin</a></li>
+				</ul>
+			</nav>
 		</header>
-		
-		<nav id="top-menu">
-			<ul>
-				<li><a href="startowa_Oleksiejczuk.html">Strona główna</a></li>
-				<li><a href="opis_sklepu_Oleksiejczuk.html">Opis sklepu</a></li>
-				<li><a href="asortyment_Oleksiejczuk.html">Asortyment sklepu</a></li>
-				<li><a href="promocje_Oleksiejczuk.html">Promocje</a></li>
-				<li><a href="kontakt_Oleksiejczuk.html">Kontakt</a></li>
-				<li><a href="regulamin_Oleksiejczuk.html">Regulamin</a></li>
-			</ul>
-		</nav>
-		<aside class="left-column">
-			
-			<p> aaa </p>
-			<p> bbb </p>
-		
-		</aside>
-		<section id="content" class="right-column">
-			<article> 
-				<header>asortyment sklepu</header>
-				
-				<p> </p>
-			
-				<p></p>
-			</article>
-		</section>
+		<main>				
+			<section id="assortment" class="main-content">
+				<article> 
+					<header><h1>Warzywa i owoce</h1></header>
+					<table>
+						<thead>
+							<tr>
+								<th>Nazwa</th>
+								<th>Cena</th>						
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Kalafior</td>
+								<td>4</td>
+								<td><input type="text"><input type="button" value="Dodaj"></td>
+							</tr>
+							<tr>
+								<td>Truskawki</td>
+								<td>9</td>
+								<td><input type="text"><input type="button" value="Dodaj"></td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</article>
+			</section>
+			<aside id="basket" class="sidebar">
+				<header><h1>Koszyk</h1></header>			
+				<ul class="no-dots">
+					<li><a href="asortyment_Oleksiejczuk.html?category=fruit">Owoce</a></li>
+					<li><a href="asortyment_Oleksiejczuk.html?category=vegetable">Warzywa</a></li>			
+				</ul>
+			</aside>
+		</main>
 		<footer id="page-footer">
 			<p>Copyright @2016 Abakus 2 Zając</p>
 		</footer>
-		
-		
+
 	</body>
-		
-		
-		
-	
-	
-
-
-
-
-
-
 </html>
