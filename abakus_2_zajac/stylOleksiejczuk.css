@@ -11,7 +11,7 @@ body {
 main {
 	background-color: #f2fff7;;
 	overflow: auto;
-	padding-bottom: 20px;	
+	padding: 15px;
 }
 
 /* klasa bocznego panelu, ustawia szerokość 200 i wymusza przyciągnięcie do prawej strony (reszta elementów ma opływać po lewej stronie) */
@@ -61,8 +61,19 @@ ul.no-dots {
 }
 
 
+/* Strona domowa */
+#js-form {
+	clear: both;
+}
 
-/* About Store */
+#visitor {
+	float: right;
+	padding-right: 15px;
+	font-size: 20px;
+    line-height: 40px;
+}
+
+/* O sklepie */
 #about-store img.store-image {
 	width: 200px;
 	height: 100px;

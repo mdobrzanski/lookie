@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
+	<head id="page-head">
 		<meta charset="utf-8">
+		<title>Abakus 2 Zając - Oleksiejczuk - Witamy</title>
 		<link rel="stylesheet" type="text/css" href="stylOleksiejczuk.css">
+		<script type="text/javascript" src="skrypty_Oleksiejczuk.js"></script>
 	</head>
 	<body>
 		<header id="page-header">			
 			<img src="logo.jpg" class="logo">
-			<h1>Abakus 2 Zając</h1>
+			<h1>Abakus 2 Zając <span id="visitor"></span></h1>
 			<nav id="top-menu">
 				<ul class="no-dots">
 					<li><a href="startowa_Oleksiejczuk.html">Strona główna</a></li>
 					<li><a href="opis_sklepu_Oleksiejczuk.html">Opis sklepu</a></li>
-					<li><a href="asortyment_Oleksiejczuk.html">Asortyment sklepu</a></li>
+					<li><a href="asortyment_Oleksiejczuk.php">Asortyment sklepu</a></li>
 					<li><a href="promocje_Oleksiejczuk.html">Promocje</a></li>
 					<li><a href="kontakt_Oleksiejczuk.html">Kontakt</a></li>
 					<li><a href="regulamin_Oleksiejczuk.html">Regulamin</a></li>
@@ -20,19 +22,29 @@
 			</nav>
 		</header>
 		<main>
-			<aside id="basket">
-				<header><h1>Koszyk</h1></header>			
-				<ul class="no-dots">
-					<li><a href="asortyment_Oleksiejczuk.html?category=fruit">Owoce</a></li>
-					<li><a href="asortyment_Oleksiejczuk.html?category=vegetable">Warzywa</a></li>			
-				</ul>
-			</aside>
-			<section id="home">
+			<section id="home" class="main-content">
 				<article> 
 					<header>Witamy</header>
 					<p>W naszym sklepie oferujemy duży wybór owoców i warzyw od najlepszych polskich dostawców. <br>Tylko u nas świeże dostawy owoców i warzyw.</p>				
 					<p>Oprócz owoców i warzyw oferujemy świeże soki wyciskane z owoców i warzyw</p>
 				</article>
+			</section>
+			<aside id="basket" class="sidebar">
+				<header><h1>Koszyk</h1></header>
+				<p>Produkty które wybrałeś</p>			
+				<ul class="no-dots">
+					<li>Produkt 1</li>
+					<li>Produkt 2</li>			
+				</ul>
+			</aside>
+			<section>
+				<form id="js-form">
+					<label for="text-box-1">Imię</label>
+					<input id="text-box-1" type="text" name="textBox 1">
+					<label for="text-box-2">Kraj Pochodzenia</label>
+					<input id="text-box-2" type="text" name="textBox 2">
+					<input type="button" value="Ustaw" onclick="addInfoToHead();">
+				</form>
 			</section>
 		</main>
 		<footer id="page-footer">
