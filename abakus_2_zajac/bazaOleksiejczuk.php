@@ -17,45 +17,35 @@
 		mysql_select_db($dbname);
 		// Zapytanie SQL do bazy danych zapisz do zmiennej $sql
 		// Wywołaj zapytanie w bazie i zapisz jego wynik (dane) miennej $result
-		$query = mysql_query("SELECT id, name, descr, price, category FROM dane_Oleksiejczuk", $conn);
+		$query = mysql_query("SELECT id, name, descr, price, unit, category FROM dane_Oleksiejczuk", $conn);
 		
 		if(! $query ) {
 			die('Could not get data: ' . mysql_error());
 		}
-
+		// Stwórz listę, który będzie przechowywał dane z bazy
 		$result = array();
+		// W pętli dodawaj kolejne wiersze danych z bazy do listy $result
 		while($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
 			array_push($result, $row);
 		}
+		// Zamknij połączenie do bazy danych
 		mysql_close($conn);
 
-		return $result;
+		// Zwróć listę z danymi
+		return $result;	
 	}
 
 	function product_rows() {
-		// Funkcja zwracająca html z wierszami produktów do wyświetlenie w tabeli.
+		// Funkcja zwracająca html z wierszami produktów do wyświetlenia w tabeli.
 
-		if (array_key_exists('kategoria', $_GET)){
-			$cateogry = $_GET['kategoria'];
-		} else {
-			$category = NULL;
-		}
-
-		// pobieramy producty z bazy danych i zapisujemy do zmiennej $data
-		$data = Array(
-			Array('name' => 'Name 1', 'descr' => 'Descr 1', 'price' => '7,50', 'category' => 'warzywa'),
-			Array('name' => 'Name 2', 'descr' => 'Descr 2', 'price' => '8,60', 'category' => 'warzywa'),
-			Array('name' => 'Name 3', 'descr' => 'Descr 3', 'price' => '9,70', 'category' => 'owoce'),
-		);
+		// pobieramy produkty z bazy danych i zapisujemy do zmiennej $data
 		$data = get_data();
 
 		$b = ''; // ustawiamy zmienną $b na początek jako pusty tekst
-		for($i=0; $i < count($data); $i++) {
-			// przechodzimy po tabeli $data zawierjącej dane i dopisujemy HTML do zmiennej $b jeśli produkt jest kategorii $category
+		for ($i=0; $i < count($data); $i++) {
+			// przechodzimy po liście $data zawierjącej dane i dopisujemy HTML do zmiennej $b jeśli produkt jest kategorii $category
 			$item = $data[$i]; // przy każdym obrocie pętli pod zmienną $item ustawiamy kolejny produkt z listy $data
-			if ($category == NULL || $item['category'] == $category){  //  dopisz do $b jeśli $category nie było określone albo kategoria produktu zgadza się z $category (oczekiwaną przez nas kategorią) 
-				$b =  $b . '<tr><td>' . $item['name'] . '</td><td>' . $item['descr'] . '</td><td>' . $item['price'] . '</td></tr>';  // \n oznacza nowy wiersz w tekście
-			}
+			$b =  $b . '<tr><td>' . $item['name'] . '</td><td>' . $item['descr'] . '</td><td>' . $item['price'] . '</td></tr>';
 		}
 		return $b; // zwracamy zawartość zmiennej $b
 	}	
@@ -76,8 +66,8 @@
 				<ul class="no-dots">
 					<li><a href="startowa_Oleksiejczuk.html">Strona główna</a></li>
 					<li><a href="opis_sklepu_Oleksiejczuk.html">Opis sklepu</a></li>
-					<li><a href="asortyment_Oleksiejczuk.php">Asortyment sklepu</a></li>
-					<li><a href="promocje_Oleksiejczuk.html">Promocje</a></li>
+					<li><a href="bazaOleksiejczuk.php">Asortyment sklepu</a></li>
+					<li><a href="formularz_Oleksiejczuk.php">Formularz</a></li>
 					<li><a href="kontakt_Oleksiejczuk.html">Kontakt</a></li>
 					<li><a href="regulamin_Oleksiejczuk.html">Regulamin</a></li>
 				</ul>
@@ -87,7 +77,7 @@
 			<section id="assortment" class="main-content">
 				<article> 
 					<header><h1>Warzywa i owoce</h1></header>
-					<table>
+					<table id="products">
 						<thead>
 							<tr>
 								<th>Nazwa</th>
@@ -97,7 +87,7 @@
 						</thead>
 						<tbody>
 							<?php
-								// wywołujemy funkcję, która doda  
+								// wywołujemy funkcję, która doda wiersze do tabeli
 								echo product_rows();
 							?>
 						</tbody>

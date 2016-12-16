@@ -73,11 +73,22 @@ ul.no-dots {
     line-height: 40px;
 }
 
+/* Baza */
+#products {
+	padding: 5px;
+}
+
 /* O sklepie */
 #about-store img.store-image {
 	width: 200px;
 	height: 100px;
 }
+
+/* Formularz */
+#personal-form label {
+	padding-right: 5px;
+	line-height: 30px;
+} 
 
 /* Footer */
 
