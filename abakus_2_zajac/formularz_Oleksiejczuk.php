@@ -2,12 +2,12 @@
 <html lang="pl">
 	<head id="page-head">
 		<meta charset="utf-8">
-		<title>Abakus 2 Zając - Oleksiejczuk - Witamy</title>
+		<title>Abakus 2 Zając - Oleksiejczuk - Formularz</title>
 		<link rel="stylesheet" type="text/css" href="stylOleksiejczuk.css">
 	</head>
 	<body>
 		<header id="page-header">			
-			<img src="foto1_Oleksiejczuk.jpg" class="logo">
+			<img src="logo_Oleksiejczuk.jpg" class="logo">
 			<h1>Abakus 2 Zając <span id="visitor"></span></h1>
 			<nav id="top-menu">
 				<ul class="no-dots">
