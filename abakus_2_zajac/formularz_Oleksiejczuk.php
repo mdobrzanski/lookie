@@ -23,7 +23,7 @@
 		<main>
 			<section class="main-content">
 				<article> 
-					<header>Formularz Personalny</header>
+					<header><h1>Formularz Personalny</h1></header>
                     <form id="personal-form" method="POST" action="odczyt_Oleksiejczuk.php">
                         <label for="first-name">Imię</label><input id="first-name" name="first-name" type="text"><br>
                         <label for="last-name">Nazwisko</label><input id="last-name" name="last-name" type="text"><br>
