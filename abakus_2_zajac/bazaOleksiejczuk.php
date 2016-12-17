@@ -9,28 +9,19 @@
 		$password = "";
 		$dbname = "Oleksiejczuk_Abakus";
 
-		// Stwórz połączenie do bazy danych i zapisz obiekt pod zmienną $conn
-		$conn = mysql_connect($host, $username, $password);
-		// Ustal kodowanie bazy
-		mysql_set_charset('utf8');
-    	// Wybierz bazę danych
-		mysql_select_db($dbname);
+		// Stwórz nowy obiekt połączenia do bazy danych
+		$db = new mysqli($host, $username, $password, $dbname);
 		// Zapytanie SQL do bazy danych zapisz do zmiennej $sql
-		// Wywołaj zapytanie w bazie i zapisz jego wynik (dane) miennej $result
-		$query = mysql_query("SELECT id, name, descr, price, unit, category FROM dane_Oleksiejczuk", $conn);
-		
-		if(! $query ) {
-			die('Could not get data: ' . mysql_error());
-		}
+		$resource = $db->query("SELECT id, name, descr, price, unit, category FROM dane_Oleksiejczuk");
 		// Stwórz listę, który będzie przechowywał dane z bazy
 		$result = array();
 		// W pętli dodawaj kolejne wiersze danych z bazy do listy $result
-		while($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
+		while ( $row = $resource->fetch_assoc() ) {
 			array_push($result, $row);
 		}
+		$resource->free();
 		// Zamknij połączenie do bazy danych
-		mysql_close($conn);
-
+		$db->close();
 		// Zwróć listę z danymi
 		return $result;	
 	}
